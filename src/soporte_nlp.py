@@ -1,4 +1,4 @@
-# Tratamiento de datos
+## Tratamiento de datos
 # -----------------------------------------------------------------------
 import pandas as pd
 import math
@@ -558,3 +558,11 @@ class AnalisisSentimientos:
             Resumen estadístico (count, mean, std, min, max) de las puntuaciones.
         """
         return self.dataframe[['neg', 'neu', 'pos', 'compound']].describe()
+    
+    def clasificar_sentimiento(self, valor):
+        if valor > 0.05:
+            return 'positivo'
+        elif valor < -0.05:
+            return 'negativo'
+        else:
+            return 'neutro'
